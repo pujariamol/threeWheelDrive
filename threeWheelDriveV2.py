@@ -65,15 +65,3 @@ def turnRight():
   GPIO.output(Motor2A,GPIO.HIGH)
   sleep(0.5)
   GPIO.output(Motor2E,GPIO.LOW)
-
-def main():
-  init()
-  forward()
-  turnLeft()
-  turnRight()
-  backward()
-
-  cleanup()
-	 
-if __name__ == '__main__':
-   main()

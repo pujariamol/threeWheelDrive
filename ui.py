@@ -31,7 +31,7 @@ def left():
 def right():
   print "RIGHT key pressed"
 
-def listenToKeyStrokes(args):
+def listenToKeyStrokes(up,down,left,right):
   initScreen();
   try:
     while 1:

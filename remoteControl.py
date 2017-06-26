@@ -1,11 +1,28 @@
-import threeWheelDriveV2 as DRIVER
-import ui as UI
+from ThreeWheelDrive import ThreeWheelDrive
+from UserInterface import UserInterface
 
-def UI.up():
-  print "This is remote control printing the msg"
+class RemoteControl(UserInterface):
+  twd=ThreeWheelDrive()
 
-def main():
-  UI.listenToKeyStrokes()
+  def upFunc(self):
+    self.twd.forward()
 
-if __name__ == '__main__':
-   main()
+  def downFunc(self):
+    self.twd.backward()
+
+  def leftFunc(self):
+    self.twd.turnLeft()
+
+  def rightFunc(self):
+    self.twd.turnRight()
+
+  def main(self,args):
+    self.listenToKeyStrokes(self.upFunc, self.downFunc, self.leftFunc, self.rightFunc)
+    self.twd.cleanup()
+
+if __name__ == "__main__":
+  rc=RemoteControl()
+  rc.twd.init()
+  rc.main('')
+  rc.cursesWrapper(rc.main)
+  
